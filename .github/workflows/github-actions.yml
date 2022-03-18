@@ -15,3 +15,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Code Coverage
+        run: |
+          pip install coverage
+          coverage run -m unittest
+      - name: Launching code coverage
+        uses: codecov/codecov-action@v2.1.0
